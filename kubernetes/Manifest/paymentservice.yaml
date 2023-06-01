@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: paymentservice
   namespace: nonprod
-  labels:
-    app: paymentservice
 spec:
   replicas: 1
   selector:
