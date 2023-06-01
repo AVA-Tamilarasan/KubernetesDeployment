@@ -13,11 +13,12 @@ spec:
       labels:
         app: adservice
     spec:
-     containers:
+      containers:
       - name: server
         image: <ACR Name>.azurecr.io/adservice:v1
         ports:
           - containerPort: 9555
+
 
 ---
 apiVersion: v1
