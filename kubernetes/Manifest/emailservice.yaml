@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: emailservice
   namespace: nonprod
-  labels:
-    app: emailservice
 spec:
   replicas: 1
   selector:
