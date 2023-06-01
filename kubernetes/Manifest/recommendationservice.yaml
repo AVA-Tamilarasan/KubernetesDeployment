@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: recommendationservice
   namespace: nonprod
-  labels:
-    app: recommendationservice
 spec:
   replicas: 1
   selector:
