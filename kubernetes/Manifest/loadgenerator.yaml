@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: loadgenerator
   namespace: nonprod
-  labels:
-    app: loadgenerator
 spec:
   replicas: 1
   selector:
