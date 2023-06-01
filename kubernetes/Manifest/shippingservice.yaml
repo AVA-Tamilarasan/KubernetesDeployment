@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: shippingservice
   namespace: nonprod
-  labels:
-    app: shippingservice
 spec:
   replicas: 1
   selector:
