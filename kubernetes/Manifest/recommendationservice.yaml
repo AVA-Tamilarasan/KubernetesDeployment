@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: recommendationservice
-          image: <ACR Name>.azurecr.io/recommendationservice:v1
+          image: ecommerceusecase.azurecr.io/recommendationservice:v1
           ports:
             - containerPort: 8085
 
