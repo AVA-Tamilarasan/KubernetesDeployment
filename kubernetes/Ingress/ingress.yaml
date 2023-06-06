@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-     - http:
+    - http:
         paths:
           - path: /adservice
             pathType: Prefix
@@ -56,7 +56,7 @@ spec:
               service:
                 name: paymentservice
                 port:
-                  number:4051
+                  number: 4051
           - path: /productcatalogservice
             pathType: Prefix
             backend:
@@ -82,6 +82,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: loadtest
+                name: loadgenerator
                 port:
                   number: 8080
