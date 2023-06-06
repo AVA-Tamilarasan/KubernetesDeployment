@@ -4,12 +4,11 @@ metadata:
   name: microservices-ingress
   namespace: nonprod
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.global-static-ip-name: 192.168.23.23
 spec:
   rules:
-    - http:
+    - host: hello.com
+      http:
         paths:
           - path: /adservice
             pathType: Prefix
@@ -24,7 +23,7 @@ spec:
               service:
                 name: currencyservice
                 port:
-                  number: 7000
+                  number: 7000 
           - path: /cartservice
             pathType: Prefix
             backend:
@@ -59,7 +58,7 @@ spec:
               service:
                 name: paymentservice
                 port:
-                  number: 4051
+                  number: 50051 
           - path: /productcatalogservice
             pathType: Prefix
             backend:
@@ -80,21 +79,11 @@ spec:
               service:
                 name: shippingservice
                 port:
-                  number: 50051
+                  number: 50051 
           - path: /load-test
             pathType: Prefix
             backend:
               service:
-                name: loadgenerator
+                name: loadtest
                 port:
-                  number: 8080
-                  
-
-status:
-  loadBalancer:
-    ingress:
-      - ip: 10.0.0.10
-
-                  
- 
- 
+                  number: 8080  
