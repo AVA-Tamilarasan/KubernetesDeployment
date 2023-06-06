@@ -21,15 +21,15 @@ jobs:
       - name: Login to ACR
         uses: azure/docker-login@v1
         with:
-          login-server: myacr.azurecr.io
+          login-server: ${{ secrets.ACR_REGISTRY }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build and push Docker images
         run: |
           cd src/cartservice
-          docker build -t ecommerceusecase.azurecr.io/cartservice-nonprod:latest .
-          docker push ecommerceusecase.azurecr.io/cartservice-nonprod:latest
+          docker build -t ${{ secrets.ACR_REGISTRY }}.azurecr.io/cartservice-nonprod:latest .
+          docker push ${{ secrets.ACR_REGISTRY }}.azurecr.io/cartservice-nonprod:latest
 
       - name: Deploy to AKS
         uses: azure/k8s-set-context@v1
