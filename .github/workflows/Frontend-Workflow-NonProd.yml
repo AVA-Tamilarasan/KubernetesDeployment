@@ -28,8 +28,8 @@ jobs:
       - name: Build and push Docker images
         run: |
           cd src/frontend
-          docker build -t ${{ secrets.ACR_REGISTRY }}.azurecr.io/frontend-nonprod:latest .
-          docker push ${{ secrets.ACR_REGISTRY }}.azurecr.io/frontend-nonprod:latest
+          docker build -t ${{ secrets.ACR_REGISTRY }}/frontend-nonprod:latest .
+          docker push ${{ secrets.ACR_REGISTRY }}/frontend-nonprod:latest
 
       - name: Deploy to AKS
         uses: azure/k8s-set-context@v1
