@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: advanceusecasek8s.com
+    - host: 10.0.0.10
       http:
         paths:
           - path: /adservice
