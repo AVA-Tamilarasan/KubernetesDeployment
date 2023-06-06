@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: loadgenerator
-          image: <ACR Name>.azurecr.io/loadgenerator:v1
+          image: ecommerceusecase.azurecr.io/loadgenerator:v1
           ports:
             - containerPort: 8080
 
