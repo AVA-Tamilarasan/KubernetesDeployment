@@ -28,8 +28,8 @@ jobs:
       - name: Build and push Docker images
         run: |
           cd src/productcatalogservice
-          docker build -t ${{ secrets.ACR_REGISTRY }}.azurecr.io/productcatalogservice-nonprod:latest .
-          docker push ${{ secrets.ACR_REGISTRY }}.azurecr.io/productcatalogservice-nonprod:latest
+          docker build -t ${{ secrets.ACR_REGISTRY }}/productcatalogservice-nonprod:latest .
+          docker push ${{ secrets.ACR_REGISTRY }}/productcatalogservice-nonprod:latest
 
       - name: Deploy to AKS
         uses: azure/k8s-set-context@v1
