@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
        - name: currencyservice
-         image: <ACR Name>.azurecr.io/currencyservice:v1
+         image: ecommerceusecase.azurecr.io/currencyservice:v1
          ports:
            - containerPort: 7000
 
