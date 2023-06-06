@@ -34,3 +34,12 @@ spec:
   - name: http
     port: 80
     targetPort: 8080
+    
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: acr-secret
+stringData: 
+  acr-username: Ecommerceusecase
+  acr-password: +D+r32NLcYBVN45FRcJJIv0bfIHIY4fDn7cbmr3kgw+ACRDH09Ta
