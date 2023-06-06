@@ -89,7 +89,7 @@ spec:
                 port:
                   number: 8080
                   
-ingressClassName: nginx
+
 status:
   loadBalancer:
     ingress:
