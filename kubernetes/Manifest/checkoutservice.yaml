@@ -13,12 +13,13 @@ spec:
       labels:
         app: checkoutservice
     spec:
+      imagePullSecrets:
+        - name: acr-auth
       containers:
-       - name: checkoutservice
-         image: ecommerceusecase.azurecr.io/checkoutservice:v1
-         ports:
-          - containerPort: 5050
-
+        - name: checkoutservice
+          image: ecommerceusecase.azurecr.io/checkoutservice-nonprod:latest
+          ports:
+            - containerPort: 9555
 ---
 apiVersion: v1
 kind: Service
@@ -30,6 +31,6 @@ spec:
   selector:
     app: checkoutservice
   ports:
-  - name: http
-    port: 5050
-    targetPort: 5050
+    - name: http
+      port: 5050
+      targetPort: 5050
