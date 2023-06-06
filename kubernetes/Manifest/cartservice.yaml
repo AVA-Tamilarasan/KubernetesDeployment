@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cartservice
-          image:  <ACR Name>.azurecr.io/cartservice:v1
+          image: ecommerceusecase.azurecr.io/cartservice:v1
           ports:
             - containerPort: 7070
             
