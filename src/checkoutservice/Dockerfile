@@ -10,8 +10,14 @@ COPY . .
 
 RUN go build -o checkoutservice .
 
+FROM alpine:3.14.2
+
+WORKDIR /app
+
+COPY --from=builder /src/checkoutservice .
+
 EXPOSE 5050
 
-ENV SHIPPING_SERVICE_ADDR=shippingservice:4051
+ENV SHIPPING_SERVICE_ADDR="shippingservice.nonprod.svc.cluster.local:4051"
 
-CMD [ "./checkoutservice" ]
+CMD ["./checkoutservice"]
