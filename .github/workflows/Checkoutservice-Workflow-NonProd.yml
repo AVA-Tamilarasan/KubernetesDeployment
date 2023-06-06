@@ -25,7 +25,7 @@ jobs:
         run: |
           cd src/checkoutservice
           docker build -t ${{ secrets.ACR_REGISTRY }}/checkoutservice-nonprod:latest .
-          docker push${{ secrets.ACR_REGISTRY }}/checkoutservice-nonprod:latest
+          docker push ${{ secrets.ACR_REGISTRY }}/checkoutservice-nonprod:latest
 
       - name: Deploy to AKS
         uses: azure/k8s-set-context@v1
