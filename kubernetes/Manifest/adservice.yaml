@@ -13,13 +13,13 @@ spec:
       labels:
         app: adservice
     spec:
+      imagePullSecrets:
+        - name: acr-auth
       containers:
-        - name: adservice
+        - name: server
           image: ecommerceusecase.azurecr.io/adservice-nonprod:latest
           ports:
             - containerPort: 9555
-      imagePullSecrets:
-        - name: imagepullback
 
 ---
 
