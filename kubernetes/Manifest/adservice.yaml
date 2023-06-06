@@ -14,13 +14,15 @@ spec:
         app: adservice
     spec:
       containers:
-      - name: server
-        image: ecommerceusecase.azurecr.io/adservice-nonprod:latest
-        ports:
-          - containerPort: 9555
-
+        - name: adservice
+          image: ecommerceusecase.azurecr.io/adservice-nonprod:latest
+          ports:
+            - containerPort: 9555
+      imagePullSecrets:
+        - name: imagepullback
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -31,6 +33,6 @@ spec:
   selector:
     app: adservice
   ports:
-  - name: http
-    port: 9555
-    targetPort: 9555
+    - name: http
+      port: 9555
+      targetPort: 9555
