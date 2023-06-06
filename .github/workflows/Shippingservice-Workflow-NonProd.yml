@@ -27,8 +27,8 @@ jobs:
       - name: Build and push Docker images
         run: |
           cd src/shippingservice
-          docker build -t ${{ secrets.ACR_REGISTRY }}.azurecr.io/shippingservice-nonprod:latest .
-          docker push ${{ secrets.ACR_REGISTRY }}.azurecr.io/shippingservice-nonprod:latest
+          docker build -t ${{ secrets.ACR_REGISTRY }}/shippingservice-nonprod:latest .
+          docker push ${{ secrets.ACR_REGISTRY }}/shippingservice-nonprod:latest
 
       - name: Deploy to AKS
         uses: azure/k8s-set-context@v1
