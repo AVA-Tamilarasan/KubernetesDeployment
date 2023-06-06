@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
        - name: server
-         image: "<ACR Name>.azurecr.io/frontend:v1"
+         image: ecommerceusecase.azurecr.io/frontend:v1
          ports:
           - containerPort: 8080
 
