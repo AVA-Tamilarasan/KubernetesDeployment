@@ -28,8 +28,8 @@ jobs:
       - name: Build and push Docker images
         run: |
           cd src/checkoutservice
-          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/checkoutservice-nonprod:latest .
-          docker push ${{ secrets.ACR_NAME }}.azurecr.io/checkoutservice-nonprod:latest
+          docker build -t ecommerceusecase.azurecr.io/checkoutservice-nonprod:latest .
+          docker push ecommerceusecase.azurecr.io/checkoutservice-nonprod:latest
 
       - name: Deploy to AKS
         uses: azure/k8s-set-context@v1
