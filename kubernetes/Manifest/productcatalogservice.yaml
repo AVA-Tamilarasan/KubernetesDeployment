@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: productcatalogservice
-          image: <ACR Name>.azurecr.io/productcatalogservice:v1
+          image: ecommerceusecase.azurecr.io/productcatalogservice:v1
           ports:
             - containerPort: 3550
 ---
