@@ -18,6 +18,4 @@ COPY --from=builder /src/checkoutservice .
 
 EXPOSE 5050
 
-ENV SHIPPING_SERVICE_ADDR="shippingservice.nonprod.svc.cluster.local:4051"
-
 CMD ["./checkoutservice"]
