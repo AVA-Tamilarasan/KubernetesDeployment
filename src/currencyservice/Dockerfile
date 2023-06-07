@@ -1,8 +1,9 @@
-
 FROM node:20.2.0-alpine@sha256:31ec13908b942ca8b2b05e523c4e4a0f303a89bd75e57a81a241b5fd35677f60 as base
 
 FROM base as builder
 
+# Some packages (e.g. @google-cloud/profiler) require additional
+# deps for post-install scripts
 RUN apk add --update --no-cache \
     python3 \
     make \
@@ -14,7 +15,11 @@ COPY package*.json ./
 
 RUN npm install js-yaml
 
+FROM base as without-grpc-health-probe-bin
+
 WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 COPY . .
 
@@ -22,5 +27,9 @@ EXPOSE 7000
 
 ENTRYPOINT [ "node", "server.js" ]
 
+FROM without-grpc-health-probe-bin
 
-
+# renovate: datasource=github-releases depName=grpc-ecosystem/grpc-health-probe
+ENV GRPC_HEALTH_PROBE_VERSION=v0.4.18
+RUN wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/${GRPC_HEALTH_PROBE_VERSION}/grpc_health_probe-linux-amd64 && \
+    chmod +x /bin/grpc_health_probe
