@@ -7,7 +7,7 @@ RUN apk add --update --no-cache \
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install -g npm@latest
 
