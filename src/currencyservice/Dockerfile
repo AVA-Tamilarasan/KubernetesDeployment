@@ -1,13 +1,12 @@
-FROM node:20.2.0-alpine@sha256:31ec13908b942ca8b2b05e523c4e4a0f303a89bd75e57a81a241b5fd35677f60 as builder
 
-WORKDIR /usr/src/app
+FROM node:20.2.0-alpine@sha256:f25b0e9d3d116e267d4ff69a3a99c0f4cf6ae94eadd87f1bf7bd68ea3ff0bef7 as base
 
-COPY package*.json ./
+WORKDIR /app
 
-RUN npm install -g npm@latest
+COPY . /app
 
-COPY . .
+RUN npm install
 
-EXPOSE 7000
+EXPOSE  7000
 
-ENTRYPOINT [ "node", "server.js" ]
+CMD [ "npm", "start" ]
