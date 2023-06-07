@@ -33,11 +33,11 @@ WORKDIR /src
 
 COPY --from=builder /go/bin/shippingservice /src/shippingservice
 
-ENV APP_PORT=50051
+ENV APP_PORT=4051
 
 
 ENV GOTRACEBACK=single
 
-EXPOSE 50051
+EXPOSE 4051
 ENTRYPOINT ["/src/shippingservice"]
 
