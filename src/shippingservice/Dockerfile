@@ -12,14 +12,17 @@ COPY . .
 ARG SKAFFOLD_GO_GCFLAGS
 RUN go build -gcflags="${SKAFFOLD_GO_GCFLAGS}" -o /productcatalogservice .
 
-FROM alpine:3.18.0@sha256:02bb6f428431fbc2809c5d1b41eab5a68350194fb508869a33cb1af4444c9b11 AS without-grpc-health-probe-bin
+
 RUN apk add --no-cache ca-certificates
 
 WORKDIR /src
-COPY --from=builder /productcatalogservice ./server
+
+COPY . .
+
 COPY products.json .
 
 ENV GOTRACEBACK=single
 
 EXPOSE 3550
+
 ENTRYPOINT ["/src/server"]
