@@ -20,6 +20,9 @@ spec:
           image: ecommerceusecase.azurecr.io/paymentservice-nonprod:latest
           ports:
             - containerPort: 50051
+          env:
+            - name: PORT
+              value: "50051"
 
 ---
 apiVersion: v1
