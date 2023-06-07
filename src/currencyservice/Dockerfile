@@ -6,13 +6,11 @@ RUN apk add --update --no-cache \
     make \
     g++
 
-WORKDIR /app
-
-COPY . /app
-
-RUN npm install -g npm@latest
+WORKDIR /src
 
 COPY . .
+
+RUN npm install -g npm@latest
 
 EXPOSE 7000
 
