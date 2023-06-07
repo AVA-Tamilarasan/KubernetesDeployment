@@ -9,11 +9,9 @@ RUN apt-get -qq update \
 
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1
-
-ENV ENABLE_PROFILER=1
 
 WORKDIR /email_server
 
@@ -23,4 +21,5 @@ COPY . .
 
 EXPOSE 8080
 
-ENTRYPOINT [ "python", "email_server.py" ]
+ENTRYPOINT ["python", "email_server.py"]
+
