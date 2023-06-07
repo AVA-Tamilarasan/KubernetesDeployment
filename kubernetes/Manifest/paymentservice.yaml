@@ -32,6 +32,6 @@ spec:
   selector:
     app: paymentservice
   ports:
-  - name: http
+  - name: grpc
     port: 50051
     targetPort: 50051
