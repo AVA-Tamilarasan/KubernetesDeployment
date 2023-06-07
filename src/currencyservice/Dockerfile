@@ -1,4 +1,20 @@
-FROM node:20.2.0-alpine@sha256:31ec13908b942ca8b2b05e523c4e4a0f303a89bd75e57a81a241b5fd35677f60 as builder
+# Copyright 2020 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+FROM node:20.2.0-alpine@sha256:31ec13908b942ca8b2b05e523c4e4a0f303a89bd75e57a81a241b5fd35677f60 as base
+
+FROM base as builder
 
 RUN apk add --update --no-cache \
     python3 \
@@ -7,10 +23,17 @@ RUN apk add --update --no-cache \
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install -g npm@latest
 
+FROM base as without-grpc-health-probe-bin
+
+WORKDIR /usr/src/app
+
+COPY . .
+
 EXPOSE 7000
 
-CMD [ "node", "server.js" ]
+ENTRYPOINT [ "node", "server.js" ]
+
