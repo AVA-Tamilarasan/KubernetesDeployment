@@ -19,7 +19,7 @@ spec:
         - name: shippingservice
           image: ecommerceusecase.azurecr.io/shippingservice-nonprod:latest
           ports:
-            - containerPort: 4051
+            - containerPort: 50051
 
 ---
 apiVersion: v1
@@ -33,5 +33,5 @@ spec:
     app: shippingservice
   ports:
   - name: http
-    port: 4051
-    targetPort: 4051
+    port: 50051
+    targetPort: 50051
