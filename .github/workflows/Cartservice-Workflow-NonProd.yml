@@ -22,7 +22,7 @@ jobs:
 
       - name: Build and push Docker images
         run: |
-          cd src/cartservice
+          cd src/cartservice/src
           docker build -t ${{ secrets.ACR_REGISTRY }}/cartservice-nonprod:latest .
           docker push ${{ secrets.ACR_REGISTRY }}/cartservice-nonprod:latest
 
