@@ -23,7 +23,7 @@ jobs:
       - name: Build and push Docker images
         run: |
           cd src/currencyservice
-          docker build -t ${{ secrets.ACR_REGISTRY }}currencyservice-nonprod:latest .
+          docker build -t ${{ secrets.ACR_REGISTRY }}/currencyservice-nonprod:latest .
           docker push ${{ secrets.ACR_REGISTRY }}/currencyservice-nonprod:latest
 
       - name: Deploy to AKS
