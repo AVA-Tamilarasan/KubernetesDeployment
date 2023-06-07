@@ -13,9 +13,11 @@ spec:
       labels:
         app: paymentservice
     spec:
+      imagePullSecrets:
+        - name: acr-auth
       containers:
-        - name: server
-          image: ecommerceusecase.azurecr.io/paymentservice:v1
+        - name: paymentservice
+          image: ecommerceusecase.azurecr.io/paymentservice-nonprod:latest
           ports:
             - containerPort: 50051
 
