@@ -23,8 +23,7 @@ spec:
           env:
             - name: REDIS_ADDR
               value: "redis-cart:6379"
-            - name: SHIPPING_SERVICE_ADDR
-              value: "shippingservice.nonprod.svc.cluster.local:4051"
+
 
 ---
 apiVersion: v1
