@@ -13,6 +13,8 @@ COPY package*.json ./
 
 RUN npm install -g npm@latest
 
+FROM base as without-grpc-health-probe-bin
+
 WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app/node_modules ./node_modules
