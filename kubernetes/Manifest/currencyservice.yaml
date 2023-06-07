@@ -20,6 +20,11 @@ spec:
           image: ecommerceusecase.azurecr.io/currencyservice-nonprod:latest
           ports:
             - containerPort: 7000
+          env:
+            - name: PORT
+               value: "7000"
+            - name: DISABLE_PROFILER
+               value: "1"
 
 ---
 apiVersion: v1
