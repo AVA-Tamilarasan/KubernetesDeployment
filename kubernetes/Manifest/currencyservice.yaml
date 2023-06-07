@@ -13,12 +13,13 @@ spec:
       labels:
         app: currencyservice
     spec:
+      imagePullSecrets:
+        - name: acr-auth
       containers:
-       - name: currencyservice
-         image: ecommerceusecase.azurecr.io/currencyservice:v1
-         ports:
-           - containerPort: 7000
-
+        - name: currencyservice
+          image: ecommerceusecase.azurecr.io/currencyservice-nonprod:latest
+          ports:
+            - containerPort: 7000
 
 ---
 apiVersion: v1
@@ -31,6 +32,6 @@ spec:
   selector:
     app: currencyservice
   ports:
-  - name: http
-    port: 7000
-    targetPort: 7000
+    - name: http
+      port: 7000
+      targetPort: 7000
