@@ -13,9 +13,11 @@ spec:
       labels:
         app: shippingservice
     spec:
+      imagePullSecrets:
+        - name: acr-auth
       containers:
         - name: shippingservice
-          image: ecommerceusecase.azurecr.io/shippingservice:v1
+          image: ecommerceusecase.azurecr.io/shippingservice-nonprod:latest
           ports:
             - containerPort: 4051
 
