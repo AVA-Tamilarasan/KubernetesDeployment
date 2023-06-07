@@ -14,8 +14,6 @@ RUN npm install -g npm@latest
 
 WORKDIR /usr/src/app
 
-COPY . .
-
 EXPOSE 7000
 
 ENTRYPOINT [ "node", "server.js" ]
