@@ -6,7 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.global-static-ip-name: 192.168.23.23
+    kubernetes.io/ingress.global-static-ip-name: 10.0.16.66
 spec:
   rules:
     - http:
@@ -88,8 +88,7 @@ spec:
                 name: loadgenerator
                 port:
                   number: 8080
-
 status:
   loadBalancer:
     ingress:
-      - ip: 10.0.0.10
+      - ip: 10.0.16.66
