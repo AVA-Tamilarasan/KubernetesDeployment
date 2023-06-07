@@ -32,7 +32,7 @@ spec:
             - name: RECOMMENDATION_SERVICE_ADDR
               value: "recommendationservice.nonprod.svc.cluster.local:8085"
             - name: SHIPPING_SERVICE_ADDR
-              value: "shippingservice.nonprod.svc.cluster.local:4051"
+              value: "shippingservice.nonprod.svc.cluster.local:50051"
             - name: CHECKOUT_SERVICE_ADDR
               value: "checkoutservice.nonprod.svc.cluster.local:5050"
             - name: AD_SERVICE_ADDR
