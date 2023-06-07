@@ -13,9 +13,11 @@ spec:
       labels:
         app: loadgenerator
     spec:
+      imagePullSecrets:
+        - name: acr-auth
       containers:
         - name: loadgenerator
-          image: ecommerceusecase.azurecr.io/loadgenerator:v1
+          image: ecommerceusecase.azurecr.io/loadgenerator-nonprod:latest
           ports:
             - containerPort: 8080
 
