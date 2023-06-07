@@ -22,7 +22,7 @@ spec:
             - containerPort: 9555
           env:
             - name: SHIPPING_SERVICE_ADDR
-              value: "shippingservice.nonprod.svc.cluster.local:4051"
+              value: "shippingservice.nonprod.svc.cluster.local:50051"
             - name: PORT
               value: "5050"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
